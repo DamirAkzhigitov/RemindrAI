@@ -1,7 +1,9 @@
 {
   "appId": "com.example.app",
   "appName": "remindrai",
-  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "out",
   "plugins": {
     "SplashScreen": {
       "launchAutoHide": false
