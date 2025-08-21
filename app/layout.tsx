@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 
+import ClerkProvider from '../clerk-config';
+
 import 'tailwindcss/tailwind.css';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -38,18 +40,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-      <Script
-        type="module"
-        src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"
-        strategy="lazyOnload"
-      />
-      <Script
-        noModule
-        src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"
-        strategy="lazyOnload"
-      />
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body>{children}</body>
+        <Script
+          type="module"
+          src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"
+          strategy="lazyOnload"
+        />
+        <Script
+          noModule
+          src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"
+          strategy="lazyOnload"
+        />
+      </html>
+    </ClerkProvider>
   );
 }
